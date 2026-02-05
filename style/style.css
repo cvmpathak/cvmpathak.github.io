@@ -1,0 +1,379 @@
+html {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Quicksand", sans-serif;
+  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+  color: #5a5a5a;
+  line-height: 1.6;
+}
+
+.container {
+  height: 100vh;
+  width: 100vh;
+  margin: 0 auto;
+  text-align: center;
+  visibility: hidden;
+  position: relative;
+  overflow: hidden;
+}
+
+.container div.six {
+  top: 10vh;
+  z-index: 1;
+}
+
+.container div.seven,
+.container div.eight {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+}
+
+.container > div {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 20vh;
+}
+
+.one {
+  font-size: 5rem;
+  font-family: "Dancing Script", cursive;
+  font-weight: 700;
+  color: #d63384;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 0.2em;
+}
+
+.one > img {
+  vertical-align: middle;
+  margin-bottom: 10px;
+  max-width: 100%;
+  height: auto;
+}
+
+.two {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #6c757d;
+  letter-spacing: 0.5px;
+}
+
+.three {
+  font-size: 4rem;
+  font-family: "Dancing Script", cursive;
+  font-weight: 700;
+  color: #d63384;
+}
+
+.four .text-box {
+  width: 600px;
+  margin: 0 auto;
+  border: 2px solid rgba(255, 105, 180, 0.3);
+  border-radius: 30px;
+  padding: 25px 30px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: 0 10px 40px rgba(255, 182, 193, 0.2);
+  transition: all 0.3s ease;
+}
+
+.text-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 50px rgba(255, 182, 193, 0.4);
+    border-color: rgba(255, 105, 180, 0.6);
+}
+
+.text-box p {
+  margin: 0;
+  text-align: left;
+  font-size: 1.4rem;
+  line-height: 1.8;
+  font-weight: 500;
+  color: #555;
+  font-family: inherit;
+}
+
+.text-box span {
+  visibility: hidden;
+}
+
+.four .fake-btn {
+  display: block;
+  width: fit-content;
+  margin: 30px auto 0;
+  color: #fff;
+  background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+  padding: 12px 35px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  letter-spacing: 0.5px;
+}
+
+.four .fake-btn:hover {
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6);
+  background: linear-gradient(45deg, #ff8e8e, #ff6b6b);
+}
+
+.four .fake-btn::after {
+    content: " \2764"; /* Heart symbol */
+    font-size: 1.2em;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.five p {
+  font-size: 2.2rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  font-weight: 500;
+}
+
+.idea-3 strong {
+  padding: 5px 12px;
+  border-radius: 8px;
+  display: inline-block;
+  color: #d63384;
+  background: #fff0f5;
+  font-weight: 700;
+}
+
+.five .idea-5 {
+  font-size: 4.5rem;
+  font-family: "Dancing Script", cursive;
+  font-weight: 700;
+  color: #d63384;
+}
+
+.idea-5 span,
+.idea-6 span,
+.wish-hbd span {
+  display: inline-block;
+}
+
+.idea-6 span {
+  font-size: 10rem;
+  font-family: "Dancing Script", cursive;
+  font-weight: 700;
+  color: #ff6b6b;
+  text-shadow: 4px 4px 0px rgba(0,0,0,0.05);
+}
+
+.six {
+  position: relative;
+}
+
+.six img {
+  display: inline-block;
+  max-width: 45%;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border: 5px solid #fff;
+}
+
+.six .hat {
+  position: absolute;
+  width: 80px;
+  top: -45px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.baloons img {
+  display: inline-block;
+  position: absolute;
+  width: 200px;
+}
+
+.baloons img:nth-child(even) {
+  left: 10%;
+}
+
+.baloons img:nth-child(odd) {
+  right: 10%;
+}
+
+.baloons img:nth-child(3n + 0) {
+  left: 30%;
+}
+
+.eight svg {
+  width: 25px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  z-index: -1;
+}
+
+.eight svg:nth-child(1) {
+  top: 7vh;
+  left: 5vw;
+  fill: #ff6b6b;
+}
+
+.eight svg:nth-child(2) {
+  top: 23vh;
+  left: 35vw;
+  fill: #ff9ff3;
+}
+
+.eight svg:nth-child(3) {
+  top: 33vh;
+  left: 23vw;
+  fill: #feca57;
+}
+
+.eight svg:nth-child(4) {
+  top: 43vh;
+  left: 57vw;
+  fill: #54a0ff;
+}
+
+.eight svg:nth-child(5) {
+  top: 68vh;
+  left: 7vw;
+  fill: #ff9f43;
+}
+
+.eight svg:nth-child(6) {
+  top: 42vh;
+  left: 77vw;
+  fill: #fd79a8;
+}
+
+.eight svg:nth-child(7) {
+  top: 68vh;
+  left: 83vw;
+  fill: #6c5ce7;
+}
+
+.eight svg:nth-child(8) {
+  top: 86vh;
+  left: 37vw;
+  fill: #a29bfe;
+}
+
+.eight svg:nth-child(9) {
+  top: 94vh;
+  left: 87vw;
+  fill: #ff4757;
+}
+
+.wish-hbd {
+  font-size: 4rem;
+  margin: 0;
+  font-family: "Dancing Script", cursive;
+  font-weight: 700;
+  color: #d63384;
+}
+
+.wish h5 {
+  font-weight: 400;
+  font-size: 2.2rem;
+  margin: 15px 0 0;
+  color: #6c757d;
+  font-family: "Quicksand", sans-serif;
+}
+
+.nine p {
+  font-size: 2.2rem;
+  font-weight: 500;
+  line-height: 1.5;
+  font-family: "Quicksand", sans-serif;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+#replay {
+  z-index: 3;
+  cursor: pointer;
+  color: #d63384;
+  font-weight: 700;
+  margin-top: 20px;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 600px) {
+  .container {
+    width: 100%;
+  }
+
+  .one {
+    font-size: 3.5rem;
+  }
+
+  .three {
+    font-size: 2.5rem;
+  }
+
+  .four .text-box {
+    width: 80%;
+    padding: 20px;
+  }
+
+  .text-box p {
+    font-size: 1.1rem;
+  }
+
+  .four .fake-btn {
+    padding: 10px 25px;
+    font-size: 1rem;
+    margin-top: 20px;
+  }
+
+  .five p {
+    font-size: 1.5rem;
+  }
+
+  .idea-5 span {
+    display: block;
+  }
+
+  .five .idea-5 {
+    font-size: 3rem;
+  }
+
+  .idea-6 span {
+    font-size: 6rem;
+  }
+
+  .six .hat {
+    width: 50px;
+    top: -30px;
+    /* Left is already handled by main CSS */
+  }
+
+  .wish-hbd {
+    font-size: 2.5rem;
+  }
+
+  .wish h5 {
+    font-size: 1.2rem;
+  }
+
+  .nine p {
+    font-size: 1.5rem;
+    max-width: 90%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+    .one { font-size: 3rem; }
+    .three { font-size: 2rem; }
+    /* Hat positioning is robust now */
+}
