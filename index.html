@@ -1,30 +1,219 @@
-<!DOCTYPE HTML>
-<!--[if IE 6]>
-<html id="ie6" class="ie ie6 lt-ie9">
-<![endif]-->
-<!--[if IE 7]>
-<html id="ie7" class="ie ie7 lt-ie9">
-<![endif]-->
-<!--[if IE 8]>
-<html id="ie8" class="ie ie8 lt-ie9">
-<![endif]-->
-<!--[if gte IE 9]>
-<html class="ie ie9">
-<![endif]-->
-<!--[if !(IE)]><!-->
+﻿<!DOCTYPE HTML>
 <html>
-<!--<![endif]-->
 
 <head>
-	<meta http-equiv='Pragma' content='no-cache' />
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<meta name="keywords" content="" />
 	<meta name="description" content="laibiaobai.cn " />
 	<title>--❤ Guo Lei Forever </title>
 	<link rel="stylesheet" href="css/all.min.css">
+	<style>
+		/* Mobile Warning Styles - Premium Minimalist */
+		@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Outfit:wght@300;500&display=swap');
+
+		#mobile-warning {
+			display: none;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #ffd1ff, #a18cd1);
+			background-size: 400% 400%;
+			animation: gradientBG 15s ease infinite;
+			z-index: 99999;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			color: #4a4a4a;
+			font-family: 'Outfit', sans-serif;
+			overflow: hidden;
+		}
+
+		/* Background Floating Bubbles */
+		.bg-bubble {
+			position: absolute;
+			border-radius: 50%;
+			background: rgba(255, 255, 255, 0.3);
+			animation: floatBubble 20s infinite linear;
+			z-index: -1;
+		}
+
+		#mobile-warning .content-wrapper {
+			padding: 40px 30px;
+			background: rgba(255, 255, 255, 0.25);
+			backdrop-filter: blur(20px);
+			-webkit-backdrop-filter: blur(20px);
+			border-radius: 30px;
+			box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+			border: 1px solid rgba(255, 255, 255, 0.5);
+			max-width: 85%;
+			animation: popIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+			opacity: 0;
+			transform: scale(0.9);
+		}
+
+		#mobile-warning .heart-icon {
+			font-size: 72px;
+			margin-bottom: 25px;
+			display: inline-block;
+			filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+			animation: heartBeat 1.5s infinite ease-in-out;
+		}
+
+		#mobile-warning h1 {
+			font-family: 'Dancing Script', cursive;
+			font-size: 42px;
+			margin-bottom: 20px;
+			color: #d63384;
+			text-shadow: 0 2px 4px rgba(214, 51, 132, 0.1);
+			opacity: 0;
+			animation: fadeInUp 0.8s 0.3s forwards;
+		}
+
+		#mobile-warning p {
+			font-size: 16px;
+			line-height: 1.7;
+			margin-bottom: 12px;
+			font-weight: 500;
+			color: #555;
+			opacity: 0;
+			animation: fadeInUp 0.8s 0.5s forwards;
+		}
+
+		#mobile-warning .sub-text {
+			font-size: 14px;
+			margin-top: 25px;
+			color: #888;
+			font-weight: 300;
+			opacity: 0;
+			animation: fadeInUp 0.8s 0.7s forwards;
+		}
+
+		/* Animations */
+		@keyframes gradientBG {
+			0% {
+				background-position: 0% 50%;
+			}
+
+			50% {
+				background-position: 100% 50%;
+			}
+
+			100% {
+				background-position: 0% 50%;
+			}
+		}
+
+		@keyframes popIn {
+			to {
+				opacity: 1;
+				transform: scale(1);
+			}
+		}
+
+		@keyframes fadeInUp {
+			from {
+				opacity: 0;
+				transform: translateY(20px);
+			}
+
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		@keyframes heartBeat {
+
+			0%,
+			100% {
+				transform: scale(1);
+			}
+
+			14% {
+				transform: scale(1.15);
+			}
+
+			28% {
+				transform: scale(1);
+			}
+
+			42% {
+				transform: scale(1.15);
+			}
+
+			70% {
+				transform: scale(1);
+			}
+		}
+
+		@keyframes floatBubble {
+			0% {
+				transform: translateY(100vh) scale(0);
+				opacity: 0;
+			}
+
+			50% {
+				opacity: 0.6;
+			}
+
+			100% {
+				transform: translateY(-20vh) scale(1.5);
+				opacity: 0;
+			}
+		}
+
+		@media screen and (max-width: 768px) {
+			#mobile-warning {
+				display: flex !important;
+			}
+
+			/* CRITICAL: Hide everything else completely */
+			.flowtime,
+			iframe,
+			.mPower,
+			body>*:not(#mobile-warning) {
+				display: none !important;
+			}
+
+			body {
+				overflow: hidden !important;
+				background: #fad0c4;
+			}
+		}
+	</style>
+	</style>
 </head>
 
 <body>
+	<div id="mobile-warning">
+		<!-- Decorative Bubbles -->
+		<div class="bg-bubble"
+			style="left: 10%; width: 60px; height: 60px; animation-duration: 12s; animation-delay: 0s;"></div>
+		<div class="bg-bubble"
+			style="left: 80%; width: 40px; height: 40px; animation-duration: 8s; animation-delay: 2s;"></div>
+		<div class="bg-bubble"
+			style="left: 40%; width: 90px; height: 90px; animation-duration: 15s; animation-delay: 4s;"></div>
+
+		<div class="content-wrapper">
+			<div class="heart-icon"><svg width="72" height="72" viewBox="0 0 24 24" fill="none"
+					xmlns="http://www.w3.org/2000/svg">
+					<path
+						d="M12 21.35L10.55 20.03C5.4 15.36 2 12.28 2 8.5C2 5.42 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.09C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.42 22 8.5C22 12.28 18.6 15.36 13.45 20.04L12 21.35Z"
+						fill="#ff4b4b" stroke="#ffffff" stroke-width="0.5" />
+				</svg></div>
+			<h1>For You, My Love</h1>
+			<p>My dearest,</p>
+			<p>Some feelings are too precious<br>to be felt in a hurry.</p>
+			<p>This little surprise deserves<br>a bigger screen and a quiet moment.</p>
+			<p>Please open this on your desktop<br>and let me steal a smile from you.</p>
+			<p class="sub-text">( Trust me… it’s made with all my heart 🌹 )</p>
+
+		</div>
+	</div>
 	<div class="flowtime">
 		<div class="ft-section section-1" data-id="section-1">
 			<div id="/section-1/page-1" class="ft-page page-1" data-id="page-1">
@@ -33,7 +222,8 @@
 			</div>
 			<div id="/section-1/page-2" class="ft-page page-2" data-id="page-2">
 				<p class="top-text">In the past, Tuku lived alone, enjoying solitude but also longing for love.</p>
-				<img src='img/iali63.jpg' alt="In the past, Tuku lived alone, enjoying solitude but also longing for love." />
+				<img src='img/iali63.jpg'
+					alt="In the past, Tuku lived alone, enjoying solitude but also longing for love." />
 			</div>
 			<div id="/section-1/page-3" class="ft-page page-3 left-img" data-id="page-3">
 				<h2 class="text">A solitary corridor</h2>
@@ -102,8 +292,10 @@
 		</div>
 		<div class="ft-section section-4" data-id="section-4">
 			<div id="/section-4/page-1" class="ft-page page-18 full-img" data-id="page-1">
-				<p class="text">Tuku likes Bubu. Because of Bubu's appearance, Tuku has a brighter smile on his face.</p>
-				<img src='img/iali11.jpg' alt="Tuku likes Bubu. Because of Bubu's appearance, Tuku has a brighter smile on his face." />
+				<p class="text">Tuku likes Bubu. Because of Bubu's appearance, Tuku has a brighter smile on his face.
+				</p>
+				<img src='img/iali11.jpg'
+					alt="Tuku likes Bubu. Because of Bubu's appearance, Tuku has a brighter smile on his face." />
 			</div>
 			<div id="/section-4/page-2" class="ft-page page-19" data-id="page-2">
 				<h3>But will Bubu like Tuku?</h3>
@@ -205,7 +397,8 @@
 				<h3>How could Tuku fly higher and farther?</h3>
 			</div>
 			<div id="/section-7/page-4" class="ft-page page-42" data-id="page-4">
-				<h3>Tuku didn't want this. He wanted to change for Bubu<br />Bubu said she liked Leos, so Tuku made a wish</h3>
+				<h3>Tuku didn't want this. He wanted to change for Bubu<br />Bubu said she liked Leos, so Tuku made a
+					wish</h3>
 				<img src='img/iali69.jpg' alt="Tuku didn't want this. He wanted to change for Bubu" />
 			</div>
 			<div id="/section-7/page-5" class="ft-page page-43" data-id="page-5">
@@ -246,12 +439,16 @@
 			</div>
 			<div id="/section-8/page-4" class="ft-page page-49 full-img" data-id="page-4">
 
-				<img src='img/iali71.jpg' alt="Tuku is happy because he found Bubu. He believes every day ahead will be happy." />
+				<img src='img/iali71.jpg'
+					alt="Tuku is happy because he found Bubu. He believes every day ahead will be happy." />
 			</div>
 			<div id="/section-8/page-5" class="ft-page page-50" data-id="page-5">
-				<p class='text'>One day, Bubu said she was afraid to ride the rollercoaster, so Tuku took her elsewhere. Just a small moment in their happy life, but it belonged to them.</p>
-				<img src='img/iali50_1.jpg' class='img1' alt="One day, Bubu said she was afraid to ride the rollercoaster, so Tuku took her elsewhere. Just a small moment in their happy life, but it belonged to them." />
-				<img src='img/iali50_2.jpg' class='img2' alt="One day, Bubu said she was afraid to ride the rollercoaster, so Tuku took her elsewhere. Just a small moment in their happy life, but it belonged to them." />
+				<p class='text'>One day, Bubu said she was afraid to ride the rollercoaster, so Tuku took her elsewhere.
+					Just a small moment in their happy life, but it belonged to them.</p>
+				<img src='img/iali50_1.jpg' class='img1'
+					alt="One day, Bubu said she was afraid to ride the rollercoaster, so Tuku took her elsewhere. Just a small moment in their happy life, but it belonged to them." />
+				<img src='img/iali50_2.jpg' class='img2'
+					alt="One day, Bubu said she was afraid to ride the rollercoaster, so Tuku took her elsewhere. Just a small moment in their happy life, but it belonged to them." />
 			</div>
 			<div id="/section-8/page-6" class="ft-page page-51" data-id="page-6">
 				<p>
@@ -276,7 +473,8 @@
 			<div id="/section-9/page-4" class="ft-page page-55 right-img" data-id="page-4">
 				<img src='img/14915.jpg' alt="Tuku and Bubu's story will continue forever." />
 				<p class="text">
-					Tuku and Bubu's story will continue forever.<br /> Whether exciting or plain, it will be what they love.
+					Tuku and Bubu's story will continue forever.<br /> Whether exciting or plain, it will be what they
+					love.
 					<br />
 					<br />
 					<br />
@@ -288,23 +486,17 @@
 
 
 
-	<iframe src="http://music.163.com/outchain/player?type=2&id=26830666&auto=1&height=66" frameBorder="0" width="0" scrolling="no" height="0" target="_blank"></iframe>
-
-	<script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+	<script src="js/jquery.min.js"></script>
 	<script src="js/all.min.js"></script>
-	<script src="js/love.min.js"></script>
-	<div class="mPower"><span id="on" title="Click to pause"></span><span id="off" title="Click to play"></script></div>
-
-<!-- laibiaobai.cn Baidu tongji analytics -->
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?14cc0d484aba55c5fa653c962618f6d1";
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-
+	<script>
+		// Stub for removed music player to prevent JS errors
+		var player = {
+			pause: function () { },
+			play: function () { }
+		};
+	</script>
+	<script src="js/love.src.js"></script>
+	<!-- Music controls removed as music is unreliable -->
 </body>
+
 </html>
