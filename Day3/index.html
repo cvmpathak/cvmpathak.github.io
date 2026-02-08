@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>A Journey with You ❤️</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Outfit:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background Elements -->
+    <div class="stars"></div>
+    <div class="floating-hearts"></div>
+
+    <!-- 1. Landing Screen -->
+    <section id="landing" class="screen active">
+        <div class="content-wrapper">
+            <h1 class="title">Hey Love...</h1>
+            <div class="typewriter-container">
+                <p id="typewriter-text"></p>
+            </div>
+            <button id="start-btn" class="cta-btn hidden">Start the Journey ✨</button>
+        </div>
+    </section>
+
+    <!-- 2. Memory Lane -->
+    <section id="memory-lane" class="screen hidden">
+        <h2 class="section-title">A Walk Down Memory Lane</h2>
+        <div class="memory-container">
+            <div class="memory-card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <span class="icon">💬</span>
+                        <p>Our First Talk</p>
+                    </div>
+                    <div class="card-back">
+                        <p>I still remember the butterflies I felt. It was just the beginning of something beautiful.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="memory-card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <span class="icon">🌟</span>
+                        <p>The Moment</p>
+                    </div>
+                    <div class="card-back">
+                        <p>The moment I realized you were the one I wanted to annoy for the rest of my life. 😉</p>
+                    </div>
+                </div>
+            </div>
+            <div class="memory-card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <span class="icon">😊</span>
+                        <p>You Smile</p>
+                    </div>
+                    <div class="card-back">
+                        <p>Your smile is literally the best thing I've ever seen. It lights up my world.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button id="next-memory-btn" class="cta-btn fade-in-delayed" onclick="nextSection('feelings')">Continue
+            ❤️</button>
+    </section>
+
+    <!-- 3. Feelings Interaction -->
+    <section id="feelings" class="screen hidden">
+        <h2 class="section-title">How does this make you feel?</h2>
+        <div class="feelings-grid">
+            <button class="feeling-btn" onclick="showFeelingResponse('Happy 😊')">😊 Happy</button>
+            <button class="feeling-btn" onclick="showFeelingResponse('Loved 🥰')">🥰 Loved</button>
+            <button class="feeling-btn" onclick="showFeelingResponse('Special 💓')">💓 Special</button>
+            <button class="feeling-btn" onclick="showFeelingResponse('Emotional 😭')">😭 Emotional</button>
+        </div>
+        <p id="feeling-response" class="response-text hidden"></p>
+        <button id="next-feelings-btn" class="cta-btn hidden" onclick="startCountdown()">One Last Thing...</button>
+    </section>
+
+    <!-- 4. Suspense Countdown -->
+    <section id="countdown" class="screen hidden">
+        <div class="overlay"></div>
+        <div class="countdown-content">
+            <p class="breathe-text">Okay... take a deep breath ❤️</p>
+            <div id="timer" class="timer-display">5</div>
+        </div>
+    </section>
+
+    <!-- 5. Proposal Moment -->
+    <section id="proposal" class="screen hidden">
+        <div class="proposal-content">
+            <h1 class="proposal-text fade-in">I don’t want perfect days.<br>I just want you... on all days.</h1>
+            <p class="question fade-in-delayed">Will you be my Valentine... and my forever? 💍</p>
+            <div class="buttons-container fade-in-delayed">
+                <button class="yes-btn" onclick="celebrate()">💖 YES</button>
+                <button class="yes-btn" onclick="celebrate()">💕 OF COURSE YES</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Celebration Screen -->
+    <section id="celebration" class="screen hidden">
+        <div class="celebration-content">
+            <h1 class="yay-text">YAY! ❤️</h1>
+            <p class="final-message">Screenshot this moment...<br>This is where our next chapter begins.</p>
+            <div class="names-animation">
+                <span>Us</span> <span>Forever</span>
+            </div>
+            <!-- Replay functionality could be added here if requested, keeping it simple for now -->
+        </div>
+        <canvas id="confetti-canvas"></canvas>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
