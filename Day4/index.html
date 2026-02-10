@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Chocolatey Surprise 🍫</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Outfit:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background Elements -->
+    <div class="bg-texture"></div>
+    <div class="floating-elements"></div>
+
+    <!-- Page 1: Welcome -->
+    <section id="welcome" class="screen active">
+        <div class="content">
+            <h1 class="title">Knock knock...</h1>
+            <p class="subtitle">Someone saved a chocolate just for you 🍫</p>
+            <div class="box-container" onclick="openBox()">
+                <img src="assets/chocolate_box_closed.png" alt="Chocolate Box" id="chocolate-box"
+                    onerror="this.style.display='none'; document.getElementById('fallback-box').style.display='flex'">
+                <div id="fallback-box" class="placeholder-box" style="display: none;">
+                    <div class="box-bow"></div>
+                </div>
+            </div>
+            <p class="instruction">Click to open 💖</p>
+        </div>
+    </section>
+
+    <!-- Page 2: Mood Selector -->
+    <section id="mood" class="screen hidden">
+        <h2 class="question">How are you feeling today, my sweet?</h2>
+        <div class="mood-grid">
+            <button class="mood-btn" onclick="selectMood('dark')">
+                <span class="icon">🍫</span>
+                <span class="label">Dark & Classy</span>
+            </button>
+            <button class="mood-btn" onclick="selectMood('strawberry')">
+                <span class="icon">🍓</span>
+                <span class="label">Bubbly & Cute</span>
+            </button>
+            <button class="mood-btn" onclick="selectMood('milk')">
+                <span class="icon">🍯</span>
+                <span class="label">Warm & Soft</span>
+            </button>
+            <button class="mood-btn" onclick="selectMood('nutty')">
+                <span class="icon">🌰</span>
+                <span class="label">Fun & Crazy</span>
+            </button>
+        </div>
+        <p id="mood-response" class="response-text"></p>
+        <button id="next-mood-btn" class="cta-btn hidden" onclick="nextSection('quiz')">Next Chocolate... ➡️</button>
+    </section>
+
+    <!-- Page 3: Chocolate Quiz -->
+    <section id="quiz" class="screen hidden">
+        <h2 class="question" id="quiz-question">Question 1/3</h2>
+        <div class="quiz-options" id="quiz-options">
+            <!-- Options injected via JS -->
+        </div>
+        <p id="quiz-feedback" class="response-text"></p>
+        <button id="next-quiz-btn" class="cta-btn hidden" onclick="nextQuestion()">Next ➡️</button>
+    </section>
+
+    <!-- Page 4: Memories -->
+    <section id="memories" class="screen hidden">
+        <h2 class="question">Sweet Memories</h2>
+        <div class="gallery">
+            <div class="polaroid" onclick="revealMemory(this, 'This one is sweeter because you smiled. 😊')">
+                <div class="inner">
+                    <div class="front">📸</div>
+                    <div class="back">
+                        <p class="memory-text"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="polaroid" onclick="revealMemory(this, 'Melts slower... like my feelings. ❤️')">
+                <div class="inner">
+                    <div class="front">🎞️</div>
+                    <div class="back">
+                        <p class="memory-text"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="polaroid" onclick="revealMemory(this, 'You are my favorite flavor. 🍬')">
+                <div class="inner">
+                    <div class="front">🖼️</div>
+                    <div class="back">
+                        <p class="memory-text"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="cta-btn" onclick="nextSection('gift')">Pick a Gift 🎁</button>
+    </section>
+
+    <!-- Page 5: Pick Gift -->
+    <section id="gift" class="screen hidden">
+        <h2 class="question">If I were there... what would you pick?</h2>
+        <div class="gift-grid">
+            <div class="gift-box"
+                onclick="selectGift('Handmade Chocolate 🍫', 'I promise to make moments as sweet as this for you.')">
+                🍫 Handmade
+            </div>
+            <div class="gift-box"
+                onclick="selectGift('Chocolate + Hug 🫂', 'A hug that lasts longer than the chocolate. 🤗')">
+                🍓 + 🫂
+            </div>
+            <div class="gift-box"
+                onclick="selectGift('Chocolate Date 🕯️', 'A date night where you are the dessert. 😉')">
+                🍰 Date
+            </div>
+            <div class="gift-box"
+                onclick="selectGift('Mystery Chocolate 🎁', 'A surprise that will make you smile. ✨')">
+                🎁 Mystery
+            </div>
+        </div>
+        <div id="gift-reveal" class="modal hidden">
+            <p id="gift-message"></p>
+            <button class="cta-btn" onclick="nextSection('letter')">Read Letter 💌</button>
+        </div>
+    </section>
+
+    <!-- Page 6: Letter -->
+    <section id="letter" class="screen hidden">
+        <div class="paper">
+            <div class="typewriter-text" id="letter-content"></div>
+        </div>
+        <button id="final-btn" class="cta-btn hidden" onclick="nextSection('surprise')">One last bite... 🍩</button>
+    </section>
+
+    <!-- Page 7: Surprise -->
+    <section id="surprise" class="screen hidden">
+        <div class="centered-content">
+            <h1>This chocolate journey was small...</h1>
+            <h2 class="fade-in-delay">But my love for you isn't. ❤️</h2>
+            <p class="final-wish">Happy Chocolate Day! 🍫</p>
+            <div class="heart-animation">❤️</div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

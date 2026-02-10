@@ -4,148 +4,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Chocolatey Surprise 🍫</title>
+    <title>Teddy Day | My Cuddle Partner 🧸</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Outfit:wght@300;400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Outfit:wght@300;400;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <!-- Background Decor -->
+    <div class="bg-circles">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+    </div>
 
-    <!-- Background Elements -->
-    <div class="bg-texture"></div>
-    <div class="floating-elements"></div>
+    <!-- Audio Elements -->
+    <audio id="bg-music" loop>
+        <source src="assets/saiyaara.mp3" type="audio/mpeg">
+    </audio>
 
-    <!-- Page 1: Welcome -->
-    <section id="welcome" class="screen active">
-        <div class="content">
-            <h1 class="title">Knock knock...</h1>
-            <p class="subtitle">Someone saved a chocolate just for you 🍫</p>
-            <div class="box-container" onclick="openBox()">
-                <img src="assets/chocolate_box_closed.png" alt="Chocolate Box" id="chocolate-box"
-                    onerror="this.style.display='none'; document.getElementById('fallback-box').style.display='flex'">
-                <div id="fallback-box" class="placeholder-box" style="display: none;">
-                    <div class="box-bow"></div>
-                </div>
+    <div class="theme-toggle" onclick="toggleTheme()" title="Switch Theme">🧸</div>
+    <div class="music-toggle" onclick="toggleMusic()" title="Toggle Music">🎵</div>
+
+    <!-- Heart Particles Container -->
+    <div id="particles-container"></div>
+
+    <!-- Landing / Hero Section -->
+    <section id="hero" class="section">
+        <div class="hero-content">
+            <div class="teddy-container" id="main-teddy-container">
+                <img src="assets/cozy_room_teddy.png" alt="Waving Teddy" id="hero-teddy" class="floating-teddy">
+                <div class="hug-message" id="hug-msg">Sending you a warm hug 🤍</div>
             </div>
-            <p class="instruction">Click to open 💖</p>
+            <h1 class="title">Happy Teddy Day, My Love 🧸❤️</h1>
+            <p class="subtext">This teddy carries all my hugs for you.</p>
+            <div class="scroll-indicator">↓ Scroll for Hugs</div>
         </div>
     </section>
 
-    <!-- Page 2: Mood Selector -->
-    <section id="mood" class="screen hidden">
-        <h2 class="question">How are you feeling today, my sweet?</h2>
-        <div class="mood-grid">
-            <button class="mood-btn" onclick="selectMood('dark')">
-                <span class="icon">🍫</span>
-                <span class="label">Dark & Classy</span>
-            </button>
-            <button class="mood-btn" onclick="selectMood('strawberry')">
-                <span class="icon">🍓</span>
-                <span class="label">Bubbly & Cute</span>
-            </button>
-            <button class="mood-btn" onclick="selectMood('milk')">
-                <span class="icon">🍯</span>
-                <span class="label">Warm & Soft</span>
-            </button>
-            <button class="mood-btn" onclick="selectMood('nutty')">
-                <span class="icon">🌰</span>
-                <span class="label">Fun & Crazy</span>
-            </button>
+    <!-- Interactive Hug Section -->
+    <section id="hug" class="section reveal">
+        <div class="container">
+            <h2 class="section-title">The Hugging Corner</h2>
+            <p>Click the teddy for a warm digital hug!</p>
+            <div class="teddy-hug-box" onclick="giveHug()">
+                <div class="hug-teddy-svg">
+                    <!-- SVG or Image will go here -->
+                    <img src="assets/heart_nose_teddy.png" alt="Teddy Hug" id="hug-teddy">
+                </div>
+                <div id="hug-count">Hugs given: 0</div>
+            </div>
+            <p id="hug-quote">“One hug = infinite love”</p>
         </div>
-        <p id="mood-response" class="response-text"></p>
-        <button id="next-mood-btn" class="cta-btn hidden" onclick="nextSection('quiz')">Next Chocolate... ➡️</button>
     </section>
 
-    <!-- Page 3: Chocolate Quiz -->
-    <section id="quiz" class="screen hidden">
-        <h2 class="question" id="quiz-question">Question 1/3</h2>
-        <div class="quiz-options" id="quiz-options">
-            <!-- Options injected via JS -->
-        </div>
-        <p id="quiz-feedback" class="response-text"></p>
-        <button id="next-quiz-btn" class="cta-btn hidden" onclick="nextQuestion()">Next ➡️</button>
-    </section>
-
-    <!-- Page 4: Memories -->
-    <section id="memories" class="screen hidden">
-        <h2 class="question">Sweet Memories</h2>
-        <div class="gallery">
-            <div class="polaroid" onclick="revealMemory(this, 'This one is sweeter because you smiled. 😊')">
-                <div class="inner">
-                    <div class="front">📸</div>
-                    <div class="back">
-                        <p class="memory-text"></p>
-                    </div>
+    <!-- Why You're My Teddy Section -->
+    <section id="why-teddy" class="section reveal">
+        <div class="container">
+            <h2 class="section-title">Why You're My Teddy</h2>
+            <div class="cards-grid">
+                <div class="cute-card">
+                    <div class="card-icon">🏠</div>
+                    <h3>My Comfort Place</h3>
+                    <p>Just like a teddy, being with you feels like home.</p>
                 </div>
-            </div>
-            <div class="polaroid" onclick="revealMemory(this, 'Melts slower... like my feelings. ❤️')">
-                <div class="inner">
-                    <div class="front">🎞️</div>
-                    <div class="back">
-                        <p class="memory-text"></p>
-                    </div>
+                <div class="cute-card">
+                    <div class="card-icon">🛡️</div>
+                    <h3>You Make Me Feel Safe</h3>
+                    <p>Your hugs are the safest place in the world.</p>
                 </div>
-            </div>
-            <div class="polaroid" onclick="revealMemory(this, 'You are my favorite flavor. 🍬')">
-                <div class="inner">
-                    <div class="front">🖼️</div>
-                    <div class="back">
-                        <p class="memory-text"></p>
-                    </div>
+                <div class="cute-card">
+                    <div class="card-icon">☁️</div>
+                    <h3>Soft at Heart</h3>
+                    <p>Your kindness and love are softer than any plush.</p>
                 </div>
             </div>
         </div>
-        <button class="cta-btn" onclick="nextSection('gift')">Pick a Gift 🎁</button>
     </section>
 
-    <!-- Page 5: Pick Gift -->
-    <section id="gift" class="screen hidden">
-        <h2 class="question">If I were there... what would you pick?</h2>
-        <div class="gift-grid">
-            <div class="gift-box"
-                onclick="selectGift('Handmade Chocolate 🍫', 'I promise to make moments as sweet as this for you.')">
-                🍫 Handmade
+    <!-- Love Notes Section -->
+    <section id="memories" class="section reveal">
+        <div class="container">
+            <h2 class="section-title">Love Notes for You</h2>
+            <div class="notes-grid">
+                <div class="envelope" onclick="openNote(this)">
+                    <div class="envelope-top"></div>
+                    <div class="note-content">You are the most lovable person I know. 🧸</div>
+                </div>
+                <div class="envelope" onclick="openNote(this)">
+                    <div class="envelope-top"></div>
+                    <div class="note-content">I wish I could hug you right now. 🫂</div>
+                </div>
+                <div class="envelope" onclick="openNote(this)">
+                    <div class="envelope-top"></div>
+                    <div class="note-content">Happy Teddy Day, my forever partner. ❤️</div>
+                </div>
             </div>
-            <div class="gift-box"
-                onclick="selectGift('Chocolate + Hug 🫂', 'A hug that lasts longer than the chocolate. 🤗')">
-                🍓 + 🫂
-            </div>
-            <div class="gift-box"
-                onclick="selectGift('Chocolate Date 🕯️', 'A date night where you are the dessert. 😉')">
-                🍰 Date
-            </div>
-            <div class="gift-box"
-                onclick="selectGift('Mystery Chocolate 🎁', 'A surprise that will make you smile. ✨')">
-                🎁 Mystery
-            </div>
-        </div>
-        <div id="gift-reveal" class="modal hidden">
-            <p id="gift-message"></p>
-            <button class="cta-btn" onclick="nextSection('letter')">Read Letter 💌</button>
         </div>
     </section>
 
-    <!-- Page 6: Letter -->
-    <section id="letter" class="screen hidden">
-        <div class="paper">
-            <div class="typewriter-text" id="letter-content"></div>
+    <!-- Surprise Section -->
+    <section id="surprise-section" class="section reveal">
+        <div class="container">
+            <button class="surprise-btn" id="surprise-btn" onclick="triggerSurprise()">Open Your Teddy Surprise
+                🎁</button>
+            <div id="surprise-reveal" class="hidden">
+                <div class="jumping-teddy"><img src="assets/teddy_surprise.png" alt="Surprise Teddy"
+                        style="width: 250px; border-radius: 2rem;"></div>
+                <h2 class="magical-text">No matter where you are, my love hugs you every day 🧸❤️</h2>
+            </div>
         </div>
-        <button id="final-btn" class="cta-btn hidden" onclick="nextSection('surprise')">One last bite... 🍩</button>
     </section>
 
-    <!-- Page 7: Surprise -->
-    <section id="surprise" class="screen hidden">
-        <div class="centered-content">
-            <h1>This chocolate journey was small...</h1>
-            <h2 class="fade-in-delay">But my love for you isn't. ❤️</h2>
-            <p class="final-wish">Happy Chocolate Day! 🍫</p>
-            <div class="heart-animation">❤️</div>
+    <!-- Final Message -->
+    <footer id="final-message" class="section reveal">
+        <div class="container">
+            <p class="handwritten">Happy Teddy Day, my forever cuddle partner.</p>
+            <p class="signature">— Yours ❤️</p>
         </div>
-    </section>
+    </footer>
 
     <script src="script.js"></script>
 </body>
