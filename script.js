@@ -101,7 +101,7 @@ function openGift() {
 
   // Background save via Formspree (for static hosting like GitHub Pages)
   // IMPORTANT: Replace 'YOUR_FORM_ID' with your actual Formspree ID
-  const formEndpoint = "https://formspree.io/f/YOUR_FORM_ID";
+  const formEndpoint = "https://formspree.io/f/xgoloayd";
   const formData = new FormData();
   userResponses.forEach((resp, i) => {
     formData.append(`Promise_${i + 1}_Question`, resp.question);
