@@ -3,128 +3,75 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teddy Day | My Cuddle Partner 🧸</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Promise Day | Our Journey ❤️</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Outfit:wght@300;400;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Outfit:wght@300;400;600&family=Playfair+Display:wght@800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <!-- Background Decor -->
-    <div class="bg-circles">
-        <div class="circle circle-1"></div>
-        <div class="circle circle-2"></div>
+
+    <!-- Background Layers -->
+    <div id="bg-container">
+        <div class="bg-layer bg-intro active"></div>
+        <div class="bg-layer bg-questions"></div>
+        <div class="bg-layer bg-final"></div>
+        <div class="bg-overlay"></div>
     </div>
 
-    <!-- Audio Elements -->
-    <audio id="bg-music" loop>
-        <source src="assets/saiyaara.mp3" type="audio/mpeg">
+
+    <audio id="bg-music" loop autoplay>
+        <source src="../assets/saiyaara.mp3" type="audio/mpeg">
     </audio>
 
-    <div class="theme-toggle" onclick="toggleTheme()" title="Switch Theme">🧸</div>
-    <div class="music-toggle" onclick="toggleMusic()" title="Toggle Music">🎵</div>
+    <div class="app-container" id="app">
 
-    <!-- Heart Particles Container -->
-    <div id="particles-container"></div>
+        <!-- Step 0: Intro -->
+        <section class="step active" id="step-0">
+            <h1 class="fade-in-text">Promise Day isn’t about big words…</h1>
+            <p class="fade-in-text delay-1">it’s about small truths we choose every day.</p>
+            <button class="btn-premium" onclick="nextStep()">Begin the Journey</button>
+        </section>
 
-    <!-- Landing / Hero Section -->
-    <section id="hero" class="section">
-        <div class="hero-content">
-            <div class="teddy-container" id="main-teddy-container">
-                <img src="assets/cozy_room_teddy.png" alt="Waving Teddy" id="hero-teddy" class="floating-teddy">
-                <div class="hug-message" id="hug-msg">Sending you a warm hug 🤍</div>
+        <!-- Step 1-3: Interaction -->
+        <section class="step" id="step-q">
+            <h2 id="question"></h2>
+            <div class="input-wrapper">
+                <textarea id="user-input" placeholder="Your promise here..." rows="3"></textarea>
             </div>
-            <h1 class="title">Happy Teddy Day, My Love 🧸❤️</h1>
-            <p class="subtext">This teddy carries all my hugs for you.</p>
-            <div class="scroll-indicator">↓ Scroll for Hugs</div>
-        </div>
-    </section>
+            <button class="btn-premium" id="btn-submit" onclick="submitAnswer()">Next Promise 🤍</button>
+        </section>
 
-    <!-- Interactive Hug Section -->
-    <section id="hug" class="section reveal">
-        <div class="container">
-            <h2 class="section-title">The Hugging Corner</h2>
-            <p>Click the teddy for a warm digital hug!</p>
-            <div class="teddy-hug-box" onclick="giveHug()">
-                <div class="hug-teddy-svg">
-                    <!-- SVG or Image will go here -->
-                    <img src="assets/heart_nose_teddy.png" alt="Teddy Hug" id="hug-teddy">
-                </div>
-                <div id="hug-count">Hugs given: 0</div>
+        <!-- Step 4: Acknowledgment -->
+        <section class="step" id="step-ack">
+            <h2 id="ack-msg">That’s a promise worth holding close 🤍</h2>
+        </section>
+
+        <!-- Step 5: Final Screen -->
+        <section class="step" id="step-final">
+            <div class="final-messages">
+                <p class="fade-in">“Promises don’t need witnesses — they only need honesty.”</p>
+                <p class="fade-in delay-1">“Thank you for hanging here with me today.”</p>
+                <p class="fade-in delay-2">“This moment, these words… they matter.”</p>
             </div>
-            <p id="hug-quote">“One hug = infinite love”</p>
-        </div>
-    </section>
+            <button class="btn-premium" onclick="openGift()">Open Your Gift 🎁</button>
+            <button class="btn-premium btn-secondary" onclick="location.reload()">Revisit This Promise</button>
+        </section>
 
-    <!-- Why You're My Teddy Section -->
-    <section id="why-teddy" class="section reveal">
-        <div class="container">
-            <h2 class="section-title">Why You're My Teddy</h2>
-            <div class="cards-grid">
-                <div class="cute-card">
-                    <div class="card-icon">🏠</div>
-                    <h3>My Comfort Place</h3>
-                    <p>Just like a teddy, being with you feels like home.</p>
-                </div>
-                <div class="cute-card">
-                    <div class="card-icon">🛡️</div>
-                    <h3>You Make Me Feel Safe</h3>
-                    <p>Your hugs are the safest place in the world.</p>
-                </div>
-                <div class="cute-card">
-                    <div class="card-icon">☁️</div>
-                    <h3>Soft at Heart</h3>
-                    <p>Your kindness and love are softer than any plush.</p>
-                </div>
+        <!-- Step 6: Personal Promise -->
+        <section class="step" id="step-gift">
+            <h2>My Promise to You...</h2>
+            <div class="personal-promise-text">
+                <p class="fade-in">“I promise to be your home, your safest place, and the one who always chooses you,
+                    every single day, with all my heart.”</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Love Notes Section -->
-    <section id="memories" class="section reveal">
-        <div class="container">
-            <h2 class="section-title">Love Notes for You</h2>
-            <div class="notes-grid">
-                <div class="envelope" onclick="openNote(this)">
-                    <div class="envelope-top"></div>
-                    <div class="note-content">You are the most lovable person I know. 🧸</div>
-                </div>
-                <div class="envelope" onclick="openNote(this)">
-                    <div class="envelope-top"></div>
-                    <div class="note-content">I wish I could hug you right now. 🫂</div>
-                </div>
-                <div class="envelope" onclick="openNote(this)">
-                    <div class="envelope-top"></div>
-                    <div class="note-content">Happy Teddy Day, my forever partner. ❤️</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Surprise Section -->
-    <section id="surprise-section" class="section reveal">
-        <div class="container">
-            <button class="surprise-btn" id="surprise-btn" onclick="triggerSurprise()">Open Your Teddy Surprise
-                🎁</button>
-            <div id="surprise-reveal" class="hidden">
-                <div class="jumping-teddy"><img src="assets/teddy_surprise.png" alt="Surprise Teddy"
-                        style="width: 250px; border-radius: 2rem;"></div>
-                <h2 class="magical-text">No matter where you are, my love hugs you every day 🧸❤️</h2>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final Message -->
-    <footer id="final-message" class="section reveal">
-        <div class="container">
-            <p class="handwritten">Happy Teddy Day, my forever cuddle partner.</p>
-            <p class="signature">— Yours ❤️</p>
-        </div>
-    </footer>
+            <div class="final-heart">❤️</div>
+        </section>
+    </div>
 
     <script src="script.js"></script>
 </body>
